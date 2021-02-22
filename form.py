@@ -1,6 +1,5 @@
 from tkinter import *
 from tkcalendar import *
-import pymongo
 from pymongo import MongoClient
 from password import password as pswd, dbname as db, collection as coll
 
@@ -33,9 +32,9 @@ def submit():
                         "spent_value": spent_value.get()
                     }
                 })
-                print(doc, "before")
+                # print(doc, "before")
                 doc.update({str(month): month_dict})
-                print(doc, "after")
+                # print(doc, "after")
                 collection.replace_one({"_id": year}, doc)
         else:
             doc.update({str(month): {
